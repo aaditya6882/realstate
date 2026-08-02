@@ -44,7 +44,7 @@ export default function Navbar() {
     }`;
 
   return (
-    <nav className="flex items-center justify-between px-6 py-3.5 bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-100">
+    <nav className="flex items-center justify-between px-6 py-3.5 bg-white/95 text-slate-800 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-100 transition-colors duration-300 dark:bg-slate-900/95 dark:text-slate-100 dark:border-slate-800">
       {/* Brand Logo */}
       <Link to="/" className="flex items-center gap-2 text-2xl font-extrabold text-slate-900 group">
         <span className="p-2 bg-coral text-white rounded-2xl shadow-sm group-hover:scale-105 transition-transform duration-200">
@@ -244,9 +244,9 @@ export default function Navbar() {
                     <LogOut className="w-4 h-4" />
                     {t.signOut}
                   </button>
-                </div>
               </div>
-            )}
+            </div>
+          )}
           </div>
         )}
       </div>

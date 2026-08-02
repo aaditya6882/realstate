@@ -4,10 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cheerful Realstate — Cheerful Real Estate</title>
-    <script type="module" crossorigin src="/assets/index-DWNuq_MC.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BNHRB6bo.css">
+    <script type="module" crossorigin src="/assets/index-MtaQ6jcO.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BOqwa0Ba.css">
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Apply saved theme early to avoid flash
+      try {
+        const t = localStorage.getItem('re_theme');
+        if (t === 'dark') document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
+      } catch (e) {}
+    </script>
   </body>
 </html>
