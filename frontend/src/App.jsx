@@ -16,7 +16,7 @@ export default function App() {
       <ThemeProvider>
         <AuthProvider>
           <BrowserRouter>
-            <div className="min-h-screen bg-slate-50 dark:bg-slate-900 font-sans text-slate-800 dark:text-slate-100 antialiased selection:bg-amber-200 selection:text-amber-900">
+            <div className="min-h-screen bg-slate-50 text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased selection:bg-amber-200 selection:text-amber-900">
               <Navbar />
               <Routes>
                 <Route path="/" element={<Landing />} />
