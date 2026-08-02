@@ -80,7 +80,7 @@ export default function Landing() {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-amber-50/60 via-white to-amber-50/30 min-h-screen text-slate-800 overflow-hidden">
+    <div className="bg-gradient-to-b from-amber-50/60 via-white to-amber-50/30 min-h-screen text-slate-800 overflow-hidden transition-colors duration-300 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 dark:text-slate-100">
       {/* Hero Section */}
       <section className="relative pt-16 pb-20 px-6 max-w-7xl mx-auto">
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-200/40 rounded-full blur-3xl -z-10 pointer-events-none" />
@@ -103,7 +103,7 @@ export default function Landing() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6"
+            className="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6 dark:text-slate-100"
           >
             {t.heroTitle1}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-coral to-amber-500">
@@ -117,7 +117,7 @@ export default function Landing() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg sm:text-xl text-slate-600 mb-10 leading-relaxed font-medium"
+            className="text-lg sm:text-xl text-slate-600 mb-10 leading-relaxed font-medium dark:text-slate-300"
           >
             {t.heroSubtitle}
           </motion.p>
@@ -150,31 +150,31 @@ export default function Landing() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-14 bg-white/90 backdrop-blur-md rounded-3xl p-4 sm:p-6 shadow-xl border border-slate-100 max-w-4xl mx-auto"
+          className="mt-14 bg-white/90 backdrop-blur-md rounded-3xl p-4 sm:p-6 shadow-xl border border-slate-100 max-w-4xl mx-auto transition-colors duration-300 dark:bg-slate-900/90 dark:border-slate-800"
         >
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
-            <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-200/60">
+            <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-200/60 dark:bg-slate-950 dark:border-slate-800">
               <MapPin className="w-5 h-5 text-coral" />
               <div>
                 <p className="text-xs text-slate-400 font-semibold uppercase">{t.location}</p>
-                <p className="text-sm font-bold text-slate-700">{t.locationValue}</p>
+                <p className="text-sm font-bold text-slate-700 dark:text-slate-100">{t.locationValue}</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-200/60">
+            <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-200/60 dark:bg-slate-950 dark:border-slate-800">
               <Home className="w-5 h-5 text-emerald-500" />
               <div>
                 <p className="text-xs text-slate-400 font-semibold uppercase">{t.propertyType}</p>
-                <p className="text-sm font-bold text-slate-700">{t.propertyTypeValue}</p>
+                <p className="text-sm font-bold text-slate-700 dark:text-slate-100">{t.propertyTypeValue}</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-200/60">
+            <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-200/60 dark:bg-slate-950 dark:border-slate-800">
               <Building2 className="w-5 h-5 text-amber-500" />
               <div>
                 <p className="text-xs text-slate-400 font-semibold uppercase">{t.budgetRange}</p>
-                <p className="text-sm font-bold text-slate-700">{t.budgetRangeValue}</p>
+                <p className="text-sm font-bold text-slate-700 dark:text-slate-100">{t.budgetRangeValue}</p>
               </div>
             </div>
-            <button className="w-full h-full min-h-[52px] bg-slate-900 hover:bg-slate-800 text-white rounded-2xl font-bold flex items-center justify-center gap-2 shadow-md transition">
+            <button className="w-full h-full min-h-[52px] bg-slate-900 hover:bg-slate-800 text-white rounded-2xl font-bold flex items-center justify-center gap-2 shadow-md transition dark:bg-amber-500 dark:text-slate-950 dark:hover:bg-amber-400">
               <Search className="w-5 h-5" />
               {t.searchHomes}
             </button>
@@ -183,7 +183,7 @@ export default function Landing() {
       </section>
 
       {/* Stats Counter Section */}
-      <section className="bg-white py-12 border-y border-slate-100">
+      <section className="bg-white py-12 border-y border-slate-100 transition-colors duration-300 dark:bg-slate-900 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, idx) => (
             <motion.div
@@ -198,8 +198,8 @@ export default function Landing() {
                 <stat.icon className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-2xl font-extrabold text-slate-900">{stat.value}</h3>
-                <p className="text-xs text-slate-500 font-medium">{stat.label}</p>
+                <h3 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">{stat.value}</h3>
+                <p className="text-xs text-slate-500 font-medium dark:text-slate-400">{stat.label}</p>
               </div>
             </motion.div>
           ))}
@@ -211,7 +211,7 @@ export default function Landing() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12">
           <div>
             <span className="text-coral font-bold text-sm tracking-wider uppercase">{t.handpickedSelection}</span>
-            <h2 className="text-3xl font-extrabold text-slate-900 mt-1">{t.featuredListings}</h2>
+            <h2 className="text-3xl font-extrabold text-slate-900 mt-1 dark:text-slate-100">{t.featuredListings}</h2>
           </div>
           <Link to="/signin" className="mt-4 sm:mt-0 text-coral font-bold flex items-center gap-1 hover:gap-2 transition-all">
             {t.viewAll} <ArrowRight className="w-4 h-4" />
@@ -227,7 +227,7 @@ export default function Landing() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
               whileHover={{ y: -8 }}
-              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300 group"
+              className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-100 transition-all duration-300 group dark:bg-slate-900 dark:border-slate-800"
             >
               <div className="relative h-56 overflow-hidden bg-slate-100">
                 <img 
@@ -241,7 +241,7 @@ export default function Landing() {
                 <button className="absolute top-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full text-slate-600 hover:text-coral shadow transition">
                   <Heart className="w-4 h-4" />
                 </button>
-                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-lg text-slate-800 text-xs font-semibold flex items-center gap-1">
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-lg text-slate-800 text-xs font-semibold flex items-center gap-1 dark:bg-slate-950/90 dark:text-slate-100">
                   <MapPin className="w-3.5 h-3.5 text-coral" />
                   {p.city}
                 </div>
@@ -249,7 +249,7 @@ export default function Landing() {
 
               <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-bold text-lg text-slate-900 group-hover:text-coral transition-colors">
+                  <h3                   className="font-bold text-lg text-slate-900 group-hover:text-coral transition-colors dark:text-slate-100">
                     {p.title}
                   </h3>
                   <div className="flex items-center gap-1 text-amber-500 text-sm font-bold">
@@ -281,10 +281,10 @@ export default function Landing() {
       </section>
 
       {/* Features Grid Section */}
-      <section className="bg-amber-50/50 py-20 px-6">
+      <section className="bg-amber-50/50 py-20 px-6 transition-colors duration-300 dark:bg-slate-950">
         <div className="max-w-7xl mx-auto text-center">
           <span className="text-emerald-600 font-bold text-sm uppercase tracking-wider">{t.whyLoveUs}</span>
-          <h2 className="text-3xl font-extrabold text-slate-900 mt-2 mb-12">{t.nestlyDifference}</h2>
+          <h2 className="text-3xl font-extrabold text-slate-900 mt-2 mb-12 dark:text-slate-100">{t.nestlyDifference}</h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feat, i) => (
@@ -294,13 +294,13 @@ export default function Landing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="bg-white p-8 rounded-3xl shadow-sm border border-amber-100 text-left hover:shadow-md transition-all"
+                className="bg-white p-8 rounded-3xl shadow-sm border border-amber-100 text-left hover:shadow-md transition-all dark:bg-slate-900 dark:border-slate-800"
               >
                 <div className="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-700 mb-6">
                   <feat.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{feat.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{feat.desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-3 dark:text-slate-100">{feat.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed dark:text-slate-400">{feat.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -314,7 +314,7 @@ export default function Landing() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-slate-900 text-white rounded-3xl p-10 sm:p-16 relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-8 shadow-2xl"
+          className="bg-slate-900 text-white rounded-3xl p-10 sm:p-16 relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-8 shadow-2xl dark:bg-slate-800"
         >
           <div className="relative z-10 max-w-xl">
             <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 leading-tight">

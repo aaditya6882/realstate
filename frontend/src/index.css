@@ -4,4 +4,12 @@
 
 body {
   font-family: 'Poppins', system-ui, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #020617;
+  color: #e2e8f0;
 }
