@@ -378,7 +378,6 @@ export default function Navbar() {
                   Dark
                 </button>
               </div>
-              </div>
             </div>
           )}
 
