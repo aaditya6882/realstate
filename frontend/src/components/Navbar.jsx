@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useLanguage } from "../context/LanguageContext";
+import { useTheme } from "../context/ThemeContext";
 import { translations } from "../utils/translations";
 import { 
   Home, 
@@ -18,12 +19,15 @@ import {
   Globe,
   BarChart3,
   Users,
-  Settings
+  Settings,
+  Sun,
+  Moon
 } from "lucide-react";
 
 export default function Navbar() {
   const { user, signOut } = useAuth();
   const { lang, setLang } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const t = translations[lang];
   const navigate = useNavigate();
   const location = useLocation();
@@ -104,19 +108,38 @@ export default function Navbar() {
       <div className="hidden md:flex items-center gap-3">
         {!user ? (
           <>
-            <div className="flex items-center gap-1 bg-slate-100 border border-slate-200 rounded-2xl p-1">
-              <button
-                onClick={() => setLang("en")}
-                className={`px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all ${lang === "en" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => setLang("ne")}
-                className={`px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all ${lang === "ne" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
-              >
-                ने
-              </button>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 bg-slate-100 border border-slate-200 rounded-2xl p-1">
+                <button
+                  onClick={() => setLang("en")}
+                  className={`px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all ${lang === "en" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLang("ne")}
+                  className={`px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all ${lang === "ne" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                >
+                  ने
+                </button>
+              </div>
+
+              <div className="flex items-center gap-1 bg-slate-100 border border-slate-200 rounded-2xl p-1">
+                <button
+                  onClick={() => toggleTheme('light')}
+                  aria-label="Light theme"
+                  className={`px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all ${theme === "light" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                >
+                  <Sun className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => toggleTheme('dark')}
+                  aria-label="Dark theme"
+                  className={`px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all ${theme === "dark" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                >
+                  <Moon className="w-4 h-4" />
+                </button>
+              </div>
             </div>
             <Link
               to="/signin"
@@ -188,6 +211,26 @@ export default function Navbar() {
                     </button>
                   </div>
                 </div>
+
+                  <div className="pt-1 border-t border-slate-100 mt-1 px-2 pb-1">
+                    <p className="px-3 py-1.5 text-[10px] font-extrabold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                      <Sun className="w-3 h-3" /> {t.theme || 'Theme'}
+                    </p>
+                    <div className="flex gap-1 mt-1">
+                      <button
+                        onClick={() => toggleTheme('light')}
+                        className={`flex-1 px-3 py-2 rounded-xl text-xs font-bold transition-all ${theme === "light" ? "bg-slate-900 text-white" : "bg-slate-50 text-slate-600 hover:bg-slate-100"}`}
+                      >
+                        Light
+                      </button>
+                      <button
+                        onClick={() => toggleTheme('dark')}
+                        className={`flex-1 px-3 py-2 rounded-xl text-xs font-bold transition-all ${theme === "dark" ? "bg-slate-900 text-white" : "bg-slate-50 text-slate-600 hover:bg-slate-100"}`}
+                      >
+                        Dark
+                      </button>
+                    </div>
+                  </div>
 
                 <div className="pt-1 border-t border-slate-100 mt-1">
                   <button
@@ -317,6 +360,25 @@ export default function Navbar() {
                   {t.nepali}
                 </button>
               </div>
+
+              <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider px-3 py-1 mt-2 flex items-center gap-1.5">
+                <Sun className="w-3 h-3" /> Theme
+              </p>
+              <div className="flex gap-2 px-3 pb-2">
+                <button
+                  onClick={() => toggleTheme('light')}
+                  className={`flex-1 py-2 rounded-xl text-xs font-bold ${theme === "light" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-600"}`}
+                >
+                  Light
+                </button>
+                <button
+                  onClick={() => toggleTheme('dark')}
+                  className={`flex-1 py-2 rounded-xl text-xs font-bold ${theme === "dark" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-600"}`}
+                >
+                  Dark
+                </button>
+              </div>
+              </div>
             </div>
           )}
 
@@ -337,6 +399,24 @@ export default function Navbar() {
                   className={`flex-1 py-2 rounded-xl text-xs font-bold ${lang === "ne" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-600"}`}
                 >
                   {t.nepali}
+                </button>
+              </div>
+
+              <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider flex items-center gap-1.5 mt-3">
+                <Sun className="w-3 h-3" /> Theme
+              </p>
+              <div className="flex gap-2 mt-1">
+                <button
+                  onClick={() => toggleTheme('light')}
+                  className={`flex-1 py-2 rounded-xl text-xs font-bold ${theme === "light" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-600"}`}
+                >
+                  Light
+                </button>
+                <button
+                  onClick={() => toggleTheme('dark')}
+                  className={`flex-1 py-2 rounded-xl text-xs font-bold ${theme === "dark" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-600"}`}
+                >
+                  Dark
                 </button>
               </div>
               <Link
